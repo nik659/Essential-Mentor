@@ -1,0 +1,65 @@
+<app-dashheader></app-dashheader>
+<div class="page-info-section set-bg" style="background-image:url('assets/img/page-bg/4.jpg')">
+
+</div>
+<section class="contact-page spad pb-0">
+    <div class="container">
+        <div class="contact-form-warp">
+            <div class="section-title text-white text-left">
+                <h2>Registered Teachers</h2>
+            </div>
+
+            <table class="table table-hover table-striped contact-form">
+                <thead>
+                    <tr>
+                        <th>SNo.</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let k of dtdata ; index as i">
+                        <td>{{i+1}}</td>
+                        <td>{{k.Name}}</td>
+                        <td>{{k.Email}}</td>
+                        <td>{{k.Mobile}}</td>
+                        
+                        <td>
+
+                            <button (click)="todelete(k._id)" data-target="#deleteId" data-toggle="modal"
+                                class="btn btn-danger ml-1">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                   
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</section>
+
+
+<div class="modal fade" id="deleteId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Record</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure to delete this Record ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="delete()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,66 @@
+<app-dashheader></app-dashheader>
+<div class="page-info-section set-bg" style="background-image:url('assets/img/page-bg/4.jpg')">
+    
+</div>
+<div class="section-title m-5">
+    <h2>Featured Courses</h2>
+</div>
+<div class="featured-courses">
+    <div class="featured-course course-item" >
+        <div class="container">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>SNO</th>
+                        <th>Course</th>
+                        <th>Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let k of courses;index as i">
+                        <td>{{i+1}}</td>
+                        <td>
+                            <img [src]="k.Url" style="height:120px;width: 180px" class="img-thumbnail">
+                        </td>
+                        <td>{{k.CourseName}}</td>
+                        <td>
+                            <button class="btn btn-danger" (click)="todelete(k._id)" data-target="#modelId" data-toggle="modal">
+                                <i class="fa fa-trash"></i> Remove
+                            </button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Course</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body">
+                Are you sure to delete this Course ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="delete()" data-dismiss="modal">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

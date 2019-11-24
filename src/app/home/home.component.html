@@ -1,0 +1,118 @@
+<app-header></app-header>
+
+
+
+<!-- Hero section -->
+<section class="hero-section set-bg" style="background-image: url('assets/img/bg.jpg')">
+	<div class="container">
+		<div class="hero-text text-white">
+			<h2>Get The Best Free Online Courses</h2>
+
+		</div>
+
+	</div>
+</section>
+<!-- Hero section end -->
+
+
+
+<div class="featured-courses">
+	<div class="featured-course course-item">
+		<div class="course-thumb set-bg" style="background-image: url('assets/img/courses/3.jpg')">
+
+		</div>
+		<div class="row">
+			<div class="col-lg-6 offset-lg-6 pl-0">
+				<div class="course-info">
+					<div class="course-text">
+
+						<h3>KNOW WHO WE ARE? WHAT WE PRODUCE?</h3>
+						<p>It is the largest learning platform which provides the learning platform that
+							aims to bridge the gap between the students and online course in
+							Lucknow, India. We provide learning services, where you can learn anything you desired
+							learn from qualified, professional and experienced teachers / instructors .
+							We offer a wide range of learning services in all the academic courses and professional
+							courses like digital marketing , software training, and Software development.
+							.</p>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+	<!-- signup section -->
+	<section class="signup-section spad mt-1">
+		<div class="signup-bg set-bg" style="background-image: url('assets/img/signup-bg.jpg')"></div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="signup-warp">
+						<div class="section-title text-white text-left">
+							<h2>Sign up to became a teacher</h2>
+
+						</div>
+						<!-- signup form -->
+						<form #sf="ngForm" class="signup-form">
+							<div class="form-group">
+								<small class="text-danger" *ngIf="n?.errors?.pattern && n?.touched">User Name is not in
+									valid
+									format</small>
+								<small class="text-danger" *ngIf="n?.errors?.required && n?.touched">Reqired
+								</small>
+								<input type="text" ngModel name="Name" placeholder="Your Name" required
+									[ngClass]="{'is-valid':n?.valid && n?.touched,'is-invalid':!n?.valid && n?.touched}"
+									pattern="(?=^.{2,51}$)([A-Za-z]{1})([A-Za-z0-9!@#$%_\^\*\-\.\?]{2,49})$"
+									#n='ngModel'>
+							</div>
+
+
+							<div class="form-group">
+								<small class="text-danger" *ngIf="e?.errors?.pattern && e?.touched">Email is not in
+									valid
+									format</small>
+								<small class="text-danger" *ngIf="e?.errors?.required && e?.touched">Reqired
+									here</small>
+								<input type="text" ngModel name="Email" placeholder="Your E-mail" required
+									[ngClass]="{'is-valid':e?.valid && e?.touched,'is-invalid':!e?.valid && e?.touched}"
+									pattern="^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$"
+									#e="ngModel">
+							</div>
+
+
+							<div class="form-group">
+								<small class="text-danger" *ngIf="m?.errors?.pattern && m?.touched">Mobile Number is not
+									in
+									valid format</small>
+								<small class="text-danger" *ngIf="m?.errors?.required && m?.touched">Reqired
+								</small>
+								<input type="text" ngModel name="Mobile" placeholder="Your Phone" required
+									[ngClass]="{'is-valid':m?.valid && m?.touched,'is-invalid':!m?.valid && m?.touched}"
+									pattern="^([6-9]{1})([0-9]{9})$" #m='ngModel'>
+							</div>
+							<!-- <label for="v-upload" class="file-up-btn">Upload Course</label>
+						<input type="file" id="v-upload"> -->
+							<button type="reset" [disabled]="!sf.form.valid" class="site-btn btn-block" (click)="Send(sf)">SignUp</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- signup section end -->
+
+
+
+
+
+
+	<app-footer></app-footer>

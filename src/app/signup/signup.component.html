@@ -1,0 +1,95 @@
+<header class="header-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div class="site-logo">
+                    <img src="assets/img/logo.png" alt="">
+                </div>
+
+            </div>
+            <!-- <div class="col-lg-9 col-md-9">
+                <nav class="main-menu">
+                    
+                </nav>
+            </div> -->
+        </div>
+    </div>
+</header>
+<div class="page-info-section set-bg" style="background-image: url('assets/img/page-bg/1.jpg')">
+
+</div>
+<!-- Header section end -->
+<section class="search-section ss-other-page">
+    <div class="container">
+        <div class="search-warp">
+            <div class="section-title text-white">
+                <h2><span>Login Area</span></h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 m-auto">
+                    <form #ld="ngForm" class="course-search-form">
+                        <input type="text" ngModel name="Name" placeholder="User Name">
+                        <input type="password" ngModel name="Password" placeholder="Password">
+                        <button (click)="Login(ld)" class="site-btn btn-dark">Sign In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact-page spad pb-0">
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-8 centered">
+                <div class="contact-form-warp">
+                    <div class="section-title text-white text-left">
+                        <h2>SignUp Form</h2>
+
+                    </div>
+                    <form #cc="ngForm" class="signup-form">
+                        <div class="form-group">
+                                <small class="text-danger" *ngIf="n?.errors?.pattern && n?.touched">User Name is not in valid
+                                        format</small>
+                            <small class="text-danger" *ngIf="n?.errors?.required && n?.touched">User Name is reqired
+                                here</small>
+                            <input type="text" ngModel name="Name" placeholder="User Name" required
+                                [ngClass]="{'is-valid':n?.valid && n?.touched,'is-invalid':!n?.valid && n?.touched}"
+                                pattern="(?=^.{2,51}$)([A-Za-z]{1})([A-Za-z0-9!@#$%_\^\*\-\.\?]{2,49})$" #n='ngModel'>
+
+                        </div>
+                        <div class="form-group">
+                            <small class="text-danger" *ngIf="e?.errors?.pattern && e?.touched">Email is not in valid
+                                format</small>
+                            <small class="text-danger" *ngIf="e?.errors?.required && e?.touched">Email is reqired
+                                here</small>
+                            <input type="text" ngModel name="Email" placeholder="E-mail" required
+                                [ngClass]="{'is-valid':e?.valid && e?.touched,'is-invalid':!e?.valid && e?.touched}"
+                                pattern="^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$"
+                                #e="ngModel">
+                        </div>
+                        <small class="text-danger" *ngIf="p?.errors?.required && p?.touched">Password is reqired
+                                here</small>
+                        <div class="form-group">
+                            <input type="password" ngModel name="Password" placeholder="Password" #p='ngModel' required>
+
+                        </div>
+                        <small class="text-danger" *ngIf="cp?.errors?.required && cp?.touched">Password is reqired
+                                here</small>
+                        <div class="form-group">
+                            <input type="password" ngModel name="Confirm" placeholder="Confirm Password" #cp='ngModel' required>
+                        </div>
+                        <div class="form-group">
+                            <button [disabled]="!cc.form.valid" type="submit" (click)="Send(cc)" class="site-btn btn-block">SIGNUP</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-2">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

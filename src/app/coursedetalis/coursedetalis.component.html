@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="page-info-section set-bg" style="background-image:url('assets/img/courses/1.jpg')">
+    
+</div>
+<div class="section-title m-5">
+    <h2>Featured Courses</h2>
+</div>
+<div class="featured-courses">
+    <div class="featured-course course-item" *ngFor="let k of course">
+        <iframe [src]='k.videoPath|safe' class="course-thumb set-bg"></iframe>
+        <div class="row">
+            <div class="col-lg-6 offset-lg-6 pl-0">
+                <div class="course-info">
+                    <div class="course-text">
+                        <h5 class="fet-note">{{k.CourseName}}</h5>
+                        <p>{{k.CourseDetails}}</p>
+                        <div class="students">managed by Admin</div>
+                    </div>
+                    <div class="course-author">
+                        <div class="ca-pic set-bg" data-setbg="img/authors/1.jpg"
+                            style="background-image: url(&quot;img/authors/1.jpg&quot;);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- course section end -->
+<app-footer></app-footer>

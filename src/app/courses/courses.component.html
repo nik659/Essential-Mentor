@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+
+<!-- Page info -->
+<div class="page-info-section set-bg" style="background-image: url('assets/img/page-bg/1.jpg')">
+
+</div>
+<!-- Page info end -->
+
+
+
+
+<!-- course section -->
+<section class="course-section spad pb-0">
+    <div class="container">
+        <div class="section-title mb-0">
+            <h2>Featured Courses</h2>
+        </div>
+    </div>
+    <div class="course-warp">
+        <div class="row course-items-area">
+            <div class="mix col-lg-3 col-md-4 col-sm-6 finance" *ngFor="let k of courses">
+                <div class="course-item">
+                    <img [src]='k.Url' class="course-thumb set-bg" style="height: 190px;width:100%">
+                    <div class="course-info">
+                        <div class="course-text">
+                            <h5>{{k.CourseName}}</h5>
+                        </div>
+                        <div class="course-author ">
+                            <button style="width: 100%" class="site-btn btn-primary" (click)="courseDetails(k._id)">View
+                                Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</section>
+<!-- course section end -->
+
+<app-footer></app-footer>

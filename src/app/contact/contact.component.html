@@ -1,0 +1,97 @@
+<app-header></app-header>
+
+<!-- Page info -->
+<div class="page-info-section set-bg" style="background-image: url('assets//img/page-bg/4.jpg')">
+
+</div>
+<!-- Page info end -->
+
+
+
+<!-- Page -->
+<section class="contact-page spad pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="contact-form-warp">
+                    <div class="section-title text-white text-left">
+                        <h2>Get In Touch</h2>
+
+                    </div>
+                    <form #ac="ngForm" class="contact-form">
+                        <div class="form-group">
+                            <small class="text-danger" *ngIf="n?.errors?.pattern && n?.touched">User Name is not in
+                                valid
+                                format</small>
+                            <small class="text-danger" *ngIf="n?.errors?.required && n?.touched">User Name is reqired
+                                here</small>
+                            <input type="text" ngModel name="Name" placeholder="User Name" required
+                                [ngClass]="{'is-valid':n?.valid && n?.touched,'is-invalid':!n?.valid && n?.touched}"
+                                pattern="(?=^.{2,51}$)([A-Za-z]{1})([A-Za-z0-9!@#$%_\^\*\-\.\?]{2,49})$" #n='ngModel'>
+
+                        </div>
+                        <div class="form-group">
+                            <small class="text-danger" *ngIf="e?.errors?.pattern && e?.touched">Email is not in valid
+                                format</small>
+                            <small class="text-danger" *ngIf="e?.errors?.required && e?.touched">Email is reqired
+                                here</small>
+                            <input type="text" ngModel name="Email" placeholder="E-mail" required
+                                [ngClass]="{'is-valid':e?.valid && e?.touched,'is-invalid':!e?.valid && e?.touched}"
+                                pattern="^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$"
+                                #e="ngModel">
+                        </div>
+
+
+                        <div class="form-group">
+                            <small class="text-danger" *ngIf="s?.errors?.required && s?.touched">Subject is reqired
+                                here</small>
+                            <input type="text" ngModel name="Subject" placeholder="Subject" required
+                                [ngClass]="{'is-valid':s?.valid && s?.touched,'is-invalid':!s?.valid && s?.touched}"
+                                pattern="(?=^.{2,51}$)([A-Za-z]{1})([A-Za-z0-9!@#$%_\^\*\-\.\?]{2,49})$" #s='ngModel'>
+                        </div>
+                        <div class="form-group">
+                            <small class="text-danger" *ngIf="t?.errors?.required && t?.touched">Message is reqired
+                                here</small>
+                            <textarea ngModel name="Message" placeholder="Message" required
+                                [ngClass]="{'is-valid':t?.valid && t?.touched,'is-invalid':!t?.valid && t?.touched}"
+                                pattern="(?=^.{2,500}$)([A-Za-z]{1})([A-Za-z0-9!@#$%_\^\*\-\.\?]{2,498})$"
+                                #t='ngModel'></textarea>
+                        </div>
+                        <button type="reset" [disabled]="!ac.form.valid" (click)="Send(ac)"
+                            class="site-btn btn-block">Send Message</button>
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="contact-info-area">
+                    <div class="section-title text-left p-0">
+                        <h2>Contact Info</h2>
+
+                    </div>
+                    <div class="phone-number">
+                        <span>Direct Line</span>
+                        <h2>+91 829970192</h2>
+                    </div>
+                    <ul class="contact-list">
+                        <li>SEC 12 <br>INDIRA NAGAR <br>LUCKNOW</li>
+                        <li>+91 8299710192</li>
+                        <li>arpitsrivastava0605@gmail.com</li>
+                    </ul>
+                    <!-- <div class="social-links">
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                        <a href="#"><i class="fa fa-behance"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Page end -->
+
+
+<app-footer></app-footer>

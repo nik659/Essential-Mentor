@@ -1,0 +1,74 @@
+<app-dashheader></app-dashheader>
+
+<div class="page-info-section set-bg" style="background-image:url('assets/img/page-bg/4.jpg')">
+
+</div>
+
+<section class="contact-page spad pb-0">
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-lg-2">
+
+            </div>
+
+            <div class="col-lg-8 centered">
+                <div class="contact-form-warp">
+                    <div class="section-title text-white text-left">
+                        <h2>Add Your Course</h2>
+                    </div>
+                    <form class="contact-form" #ad="ngForm">
+                        <div class="form-group">
+                            <small class="text-danger" *ngIf="n?.errors?.pattern && n?.touched">User Name is not in
+                                valid
+                                format</small>
+                            <small class="text-danger" *ngIf="n?.errors?.required && n?.touched">Reqired
+                            </small>
+                            <input type="text" placeholder="Course Name" name="CourseName" ngModel required
+                                [ngClass]="{'is-valid':n?.valid && n?.touched,'is-invalid':!n?.valid && n?.touched}"
+                                pattern="(?=^.{2,51}$)([A-Za-z]{1})([A-Za-z0-9!@#$%_\^\*\-\.\?]{2,49})$" #n='ngModel'>
+                        </div>
+                        <div class="form-group">
+                                <small class="text-danger" *ngIf="u?.errors?.required && u?.touched">Reqired
+                                    </small>
+                            <input type="text" placeholder="Url " name="Url" ngModel  #u='ngModel'  required
+                            [ngClass]="{'is-valid':u?.valid && u?.touched,'is-invalid':!u?.valid && u?.touched}"
+                              #u='ngModel'>
+                        </div>
+                        <div class="form-group">
+                                <small class="text-danger" *ngIf="v?.errors?.required && v?.touched">Reqired
+                                    </small>
+                            <input type="text" placeholder="video path" name="videoPath" ngModel required
+                            [ngClass]="{'is-valid':v?.valid && v?.touched,'is-invalid':!v?.valid && v?.touched}"
+                              #v='ngModel'>
+                        </div>
+                        <div class="form-group">
+                                <small class="text-danger" *ngIf="d?.errors?.required && d?.touched">Reqired
+                                        </small>
+                            <input type="text" placeholder="Course Details" name="CourseDetails" ngModel required
+                            [ngClass]="{'is-valid':d?.valid && d?.touched,'is-invalid':!d?.valid && d?.touched}"
+                            
+                            #d='ngModel'>
+
+                        </div> <!-- form-group end.// -->
+
+                        <div class="form-group">
+                            <button class="site-btn btn-block" [disabled]="!ad.form.valid"  (click)="AddCourse(ad)">ADD</button>
+                            <!-- <a routerLink="/home" routerLinkActive="active" class="site-btn"  style="float: right">BACK</a> -->
+                        </div>
+
+                    </form>
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+<app-footer></app-footer>
